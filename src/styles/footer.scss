@@ -1,0 +1,109 @@
+.footer {
+    padding: 120px 0px 40px 0px;
+    // .footer__container
+    @media (max-width: 991.98px) {
+      padding: 80px 0px 40px 0px;
+    }
+    &__container {}
+
+    // .footer__content
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+        margin-bottom: 80px;
+        gap: 60px;
+
+        @media (max-width: 1280.98px) {
+            flex-direction: column;
+        }
+
+        @media (max-width: 767.98px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    // .footer__bottom
+
+    &__bottom {}
+}
+
+.footer-content {
+
+    // .footer-content__left
+
+    &__left {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    // .footer-content__logo
+
+    
+    &__logo {
+        width: 365px;
+        @media (max-width: 767.98px) {
+          max-width: 286px;
+          width: 286px;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 17.713px;
+    }
+    &__list-link {
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+    // .footer-content__columns
+
+    &__columns {
+        display: flex;
+        align-items: flex-start;
+        gap: 100px;
+
+        @media (max-width: 767.98px) {
+            gap: 30px;
+            flex-direction: column;
+
+            ul {
+                gap: 24px;
+            }
+        }
+    }
+}
+
+
+.footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid var(--Gray, #C6C6C6);
+    // .footer-bottom__left
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    &__left {
+        font-weight: 400;
+    }
+
+    // .footer-bottom__link
+
+    &__link {
+        font-weight: 700;
+    }
+}

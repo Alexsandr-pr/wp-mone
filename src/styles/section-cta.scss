@@ -1,0 +1,91 @@
+.section-cta {
+    background: var(--Blue, #0400CC);
+
+    // .section-cta__container
+    &__container {
+        background-color: var(--Blue, #0400CC);
+        padding-top: 120px !important;
+        padding-bottom: 120px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 100px;
+        background-image: url("/assets/icons/work-with-us-decor-right.png");
+        background-position: right 60px top 0;
+        background-repeat: no-repeat;
+
+        @media (max-width: 1536.98px) {
+            background-position: right -168px top 0;
+        }
+
+        @media (max-width: 991.98px) {
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
+            gap: 60px;
+            background-position: right -208px top 0;
+        }
+
+        @media (max-width: 767.98px) {
+            background-position: right -273px top 0;
+        }
+    }
+
+    // .section-cta__title
+
+    &__title {
+        color: var(--White, #FFF);
+        font-family: "Archivo Black";
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        /* 62.4px */
+        text-transform: uppercase;
+
+        @media (max-width: 991.98px) {
+            font-size: 24px;
+        }
+    }
+
+
+    &__button {
+        @media (max-width: 487.98px) {
+          
+            padding: 14px 22px;
+        }
+    }
+}
+
+
+
+.social-media-design {
+    .section-cta__title {
+        max-width: 769px;
+    }
+}
+
+.naming {
+    .section-cta {
+        padding-bottom: 78px;
+        @media (max-width: 1440.98px) {
+          padding-bottom: 90px;
+        }
+        @media (max-width: 991.98px) {
+          padding-bottom: 40px;
+        }
+    }
+    .section-cta__container {
+        background-image: none;
+    }
+
+    .section-cta__title {
+        font-size: 68px;
+        @media (max-width: 1280.98px) {
+          font-size: 52px;
+        }
+        
+        @media (max-width: 991.98px) {
+            font-size: 24px;
+        }
+    }
+}
