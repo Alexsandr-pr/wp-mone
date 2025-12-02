@@ -16,14 +16,26 @@ window.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector('.header');
         const navOpenBtn = document.querySelector('.header-right__menu-button');
         const navCloseBtn = document.querySelector('.header-nav__close');
+        const navOverlay = document.querySelector('.header-nav__overlay');
 
-        navOpenBtn.addEventListener('click', () => {
+        const scrollBarWidth = window.innerWidth - document.body.offsetWidth + "px";
+
+        const open = () => {
             header.classList.add('_active');
-        });
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = scrollBarWidth;
+        }
 
-        navCloseBtn.addEventListener('click', () => {
-            header.classList.remove('_active');
-        });
+        const close = () => {   
+            header.classList.remove('_active'); 
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        }
+
+        navOpenBtn.addEventListener('click', open);
+        navCloseBtn.addEventListener('click', close);
+        
+        navOverlay.addEventListener('click', close);
     }
 
     initMenu();

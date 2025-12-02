@@ -321,7 +321,9 @@
     span {
         width: 36px;
         height: 24px;
-        display: block;
+        align-items: center;
+        justify-content: center;
+        display: flex;
         position: relative;
     }
 
@@ -404,6 +406,17 @@
                 visibility: visible;
                 opacity: 1;
             }
+        }
+    }
+
+    &.small {
+        gap: 12px;
+        padding: 14px 32px;
+        font-size: 20px;
+        max-width: fit-content;
+        span {
+            width: 24px;
+            height: 14px;
         }
     }
 }
