@@ -1,4 +1,6 @@
 .header {
+    position: relative;
+    z-index: 2000;
     background: var(--White, #FFF);
     // .header__wrapper
 

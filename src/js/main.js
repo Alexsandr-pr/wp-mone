@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
     initHomeHeroImage();
-    
+
     function initMenu() {
         const header = document.querySelector('.header');
         const navOpenBtn = document.querySelector('.header-right__menu-button');
@@ -125,6 +125,26 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     initSMDesignHeroImageAnim();
+
+
+    function initFooterReveal() {
+
+        const footer = document.querySelector(".footer");
+        const footerWrapper= document.querySelector(".footer-wrapper");
+
+        if (!footer) return;
+        if (!footerWrapper) return;
+
+
+        const footerHeight = footer.offsetHeight;
+        footerWrapper.style.height = `${footerHeight}px`;
+    }
+
+    initFooterReveal();
+
+    window.addEventListener("resize", () => {
+        initFooterReveal();
+    });
 })
 
 
