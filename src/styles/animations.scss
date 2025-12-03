@@ -73,3 +73,133 @@
 }
 
 /*************************/
+
+.home-animation {
+    padding: 90px 0px 120px 0px;
+
+    @media (max-width: 1440.98px) {
+        padding: 129px 0px 120px 0px;
+    }
+
+    @media (max-width: 991.98px) {
+        padding: 40px 0px 80px 0px;
+    }
+
+    &__container {
+        @media (max-width: 487.98px) {
+            padding: 0px 11px !important;
+        }
+    }
+
+    &__content {
+        padding: 0px 30px;
+        width: 100%;
+        height: 100%;
+
+        @media (max-width: 1440.98px) {
+            padding: 0;
+        }
+    }
+
+    &__block {
+        width: 100%;
+        aspect-ratio: 1347/858;
+        position: relative;
+        height: auto;
+        overflow: hidden;
+
+    }
+
+    .item {
+        height: auto;
+        object-fit: contain;
+        position: absolute;
+        will-change: transform;
+        left: 0;
+        top: 0;
+    }
+
+    .item-2 {
+        z-index: 3;
+    }
+
+    .item-9 {
+        z-index: 3;
+    }
+
+    .item-4 {
+        z-index: 2;
+    }
+
+    .item-6 {
+        z-index: 4;
+    }
+
+    .item-3 {
+        z-index: 3;
+    }
+
+    .item-11 {
+        z-index: 1;
+    }
+
+    .item-10 {
+        z-index: 2;
+    }
+
+    .item-1 {
+        aspect-ratio: 326 / 324;
+        width: calc((326 / 1347) * 100%);
+    }
+
+    .item-2 {
+        aspect-ratio: 324 / 324;
+        width: calc((324 / 1347) * 100%);
+    }
+
+    .item-3 {
+        aspect-ratio: 118 / 118;
+        width: calc((118 / 1347) * 100%);
+    }
+
+    .item-4 {
+        aspect-ratio: 326 / 324;
+        width: calc((326 / 1347) * 100%);
+    }
+
+    .item-5 {
+        aspect-ratio: 260 / 324;
+        width: calc((260 / 1347) * 100%);
+    }
+
+    .item-6 {
+        aspect-ratio: 121 / 121;
+        width: calc((121 / 1347) * 100%);
+    }
+
+    .item-7 {
+        aspect-ratio: 326 / 324;
+        width: calc((326 / 1347) * 100%);
+    }
+
+    .item-8 {
+        aspect-ratio: 94 / 117;
+        width: calc((94 / 1347) * 100%);
+    }
+
+    .item-9 {
+        aspect-ratio: 96 / 95;
+        width: calc((96 / 1347) * 100%);
+    }
+
+    .item-10 {
+        aspect-ratio: 251 / 137;
+        width: calc((251 / 1347) * 100%);
+    }
+
+    .item-11 {
+        aspect-ratio: 324 / 324;
+        width: calc((324 / 1347) * 100%);
+    }
+}
+

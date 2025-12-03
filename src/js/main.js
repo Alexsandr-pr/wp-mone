@@ -26,15 +26,15 @@ window.addEventListener("DOMContentLoaded", () => {
             document.body.style.paddingRight = scrollBarWidth;
         }
 
-        const close = () => {   
-            header.classList.remove('_active'); 
+        const close = () => {
+            header.classList.remove('_active');
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
         }
 
         navOpenBtn.addEventListener('click', open);
         navCloseBtn.addEventListener('click', close);
-        
+
         navOverlay.addEventListener('click', close);
     }
 
@@ -126,7 +126,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!oldImg || !newImg) return;
 
         setTimeout(() => {
-
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     oldImg.classList.add("is-hidden");
@@ -142,7 +141,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function initFooterReveal() {
 
         const footer = document.querySelector(".footer");
-        const footerWrapper= document.querySelector(".footer-wrapper");
+        const footerWrapper = document.querySelector(".footer-wrapper");
 
         if (!footer) return;
         if (!footerWrapper) return;
@@ -157,8 +156,100 @@ window.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
         initFooterReveal();
     });
+
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const container = document.querySelector('.home-animation__block');
+
+    const el1 = document.querySelector('.item-1');
+    const el2 = document.querySelector('.item-2');
+    const el3 = document.querySelector('.item-3');
+    const el4 = document.querySelector('.item-4');
+    const el5 = document.querySelector('.item-5');
+    const el6 = document.querySelector('.item-6');
+    const el7 = document.querySelector('.item-7');
+    const el8 = document.querySelector('.item-8');
+    const el9 = document.querySelector('.item-9');
+    const el10 = document.querySelector('.item-10');
+    const el11 = document.querySelector('.item-11');
+
+    const containerHeight = container.offsetHeight;
+    const containerWidth = container.offsetWidth;
+
+    const DESIGN_WIDTH = 1347;
+    const DESIGN_HEIGHT = 858;
+
+    const H = (px) => containerHeight * (px / DESIGN_HEIGHT);
+    const W = (px) => containerWidth * (px / DESIGN_WIDTH);
+
+    const OFFSET = H(200);      // единый нижний оффсет
+    const STEP = 1;             // длина одного шага в секундах
+
+    const timeline = gsap.timeline({
+        repeat: -1,      // бесконечно
+        repeatDelay: 0,  // задержка между циклами (если нужна — добавь)
+        yoyo: false, 
+        // scrollTrigger: {
+        //     trigger: ".home-animation",
+        //     start: "top top",
+        //     end: "+=500%",   // 5 шагов → 500%
+        //     scrub: 0.2,      // без лютости
+        //     pin: true,
+        // }
+    });
+
+
+    gsap.set(el1, { y: containerHeight + OFFSET });
+    gsap.set(el2, { y: containerHeight + OFFSET, x: W(362) });
+    gsap.set(el3, { y: containerHeight + OFFSET, x: W(944) });
+
+    gsap.set(el4, { y: containerHeight + OFFSET, x: W(191), opacity: 0 });
+    gsap.set(el5, { y: containerHeight + OFFSET, x: W(1086), opacity: 0 });
+
+    gsap.set(el6, { y: containerHeight + OFFSET, x: W(474), opacity: 0 });
+    gsap.set(el7, { y: containerHeight + OFFSET, x: W(723), opacity: 0 });
+    gsap.set(el8, { y: containerHeight + OFFSET, x: W(1197), opacity: 0 });
+
+    gsap.set(el9, { y: containerHeight + OFFSET, x: W(231), opacity: 0 });
+    gsap.set(el10, { y: containerHeight + OFFSET, x: W(799), opacity: 0 });
+    gsap.set(el11, { y: containerHeight + OFFSET, x: W(651), opacity: 0 });
+
+    timeline.addLabel("step1", 0 * STEP);
+    timeline.addLabel("step2", 1 * STEP);
+    timeline.addLabel("step3", 2 * STEP);
+    timeline.addLabel("step4", 3 * STEP);
+    timeline.addLabel("step5", 4 * STEP);
+
+    timeline.to(el1, { y: H(126), ease: "none" }, "step1");
+    timeline.to(el2, { y: H(333), ease: "none" }, "step1");
+    timeline.to(el3, { y: H(450), ease: "none" }, "step1");
+
+    timeline.to(el4, { y: H(525), opacity: 1, ease: "none" }, "step2");
+    timeline.to(el5, { y: H(465), opacity: 1, ease: "none" }, "step2");
+    timeline.to(el2, { x: W(363), ease: "none" }, "step2");
+
+    timeline.to(el6, { y: H(271), opacity: 1, ease: "none" }, "step3");
+    timeline.to(el7, { y: H(88), opacity: 1, ease: "none" }, "step3");
+    timeline.to(el8, { y: H(377), opacity: 1, ease: "none" }, "step3");
+
+
+    timeline.to(el3, { y: H(370), ease: "none" }, "step4");
+    timeline.to(el5, { y: H(385), ease: "none" }, "step4");
+
+    timeline.to(el7, { y: H(9), ease: "none" }, "step4");
+    timeline.to(el8, { y: H(297), ease: "none" }, "step4");
+    timeline.to(el9, { y: H(465), opacity: 1, ease: "none" }, "step4");
+    timeline.to(el10, { y: H(415), opacity: 1, ease: "none" }, "step4");
+    timeline.to(el11, { y: H(499), opacity: 1, ease: "none" }, "step4");
+
+    timeline.to(
+        [el1, el2, el3, el4, el5, el6, el7, el8, el9, el10, el11],
+        {
+            y: containerHeight + OFFSET,
+            opacity: 0,
+            ease: "none"
+        },
+        "step5"
+    );
 })
-
-
-
-
