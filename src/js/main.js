@@ -46,10 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (testimonials) {
             new Swiper(".testimonials__swiper", {
                 loop: true,
-                autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false,
-                },
                 grabCursor: true,
                 speed: 800,
                 pagination: {
@@ -184,21 +180,19 @@ window.addEventListener("DOMContentLoaded", () => {
     const W = (px) => containerWidth * (px / DESIGN_WIDTH);
 
     const OFFSET = H(200);      // единый нижний оффсет
-    const STEP = 1;             // длина одного шага в секундах
+    const STEP = 1; // длина шага
+    const STEPS = 5;
+    const TOTAL = STEP * STEPS;
 
     const timeline = gsap.timeline({
-        repeat: -1,      // бесконечно
-        repeatDelay: 0,  // задержка между циклами (если нужна — добавь)
-        yoyo: false, 
-        // scrollTrigger: {
-        //     trigger: ".home-animation",
-        //     start: "top top",
-        //     end: "+=500%",   // 5 шагов → 500%
-        //     scrub: 0.2,      // без лютости
-        //     pin: true,
-        // }
+        scrollTrigger: {
+            trigger: ".home-animation",
+            start: "top top",
+            end: `+=${TOTAL * 100}%`, // 5 шагов → 500%
+            scrub: true,              // без задержек!
+            pin: true,
+        }
     });
-
 
     gsap.set(el1, { y: containerHeight + OFFSET });
     gsap.set(el2, { y: containerHeight + OFFSET, x: W(362) });
@@ -220,35 +214,40 @@ window.addEventListener("DOMContentLoaded", () => {
     timeline.addLabel("step3", 2 * STEP);
     timeline.addLabel("step4", 3 * STEP);
     timeline.addLabel("step5", 4 * STEP);
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: ".home-animation",
+            start: "top 80%",   // секция появилась = проигрываем анимацию
+            toggleActions: "play none none none"
+        }
+    })
+    timeline.to(el1, { y: H(126), ease: "none", duration: STEP }, "step1");
+    timeline.to(el2, { y: H(333), ease: "none", duration: STEP }, "step1");
+    timeline.to(el3, { y: H(450), ease: "none", duration: STEP }, "step1");
 
-    timeline.to(el1, { y: H(126), ease: "none" }, "step1");
-    timeline.to(el2, { y: H(333), ease: "none" }, "step1");
-    timeline.to(el3, { y: H(450), ease: "none" }, "step1");
+    timeline.to(el4, { y: H(525), opacity: 1, ease: "none", duration: STEP }, "step2");
+    timeline.to(el5, { y: H(465), opacity: 1, ease: "none", duration: STEP }, "step2");
+    timeline.to(el2, { x: W(363), ease: "none", duration: STEP }, "step2");
 
-    timeline.to(el4, { y: H(525), opacity: 1, ease: "none" }, "step2");
-    timeline.to(el5, { y: H(465), opacity: 1, ease: "none" }, "step2");
-    timeline.to(el2, { x: W(363), ease: "none" }, "step2");
+    timeline.to(el6, { y: H(271), opacity: 1, ease: "none", duration: STEP }, "step3");
+    timeline.to(el7, { y: H(88), opacity: 1, ease: "none", duration: STEP }, "step3");
+    timeline.to(el8, { y: H(377), opacity: 1, ease: "none", duration: STEP }, "step3");
 
-    timeline.to(el6, { y: H(271), opacity: 1, ease: "none" }, "step3");
-    timeline.to(el7, { y: H(88), opacity: 1, ease: "none" }, "step3");
-    timeline.to(el8, { y: H(377), opacity: 1, ease: "none" }, "step3");
-
-
-    timeline.to(el3, { y: H(370), ease: "none" }, "step4");
-    timeline.to(el5, { y: H(385), ease: "none" }, "step4");
-
-    timeline.to(el7, { y: H(9), ease: "none" }, "step4");
-    timeline.to(el8, { y: H(297), ease: "none" }, "step4");
-    timeline.to(el9, { y: H(465), opacity: 1, ease: "none" }, "step4");
-    timeline.to(el10, { y: H(415), opacity: 1, ease: "none" }, "step4");
-    timeline.to(el11, { y: H(499), opacity: 1, ease: "none" }, "step4");
+    timeline.to(el3, { y: H(370), ease: "none", duration: STEP }, "step4");
+    timeline.to(el5, { y: H(385), ease: "none", duration: STEP }, "step4");
+    timeline.to(el7, { y: H(9), ease: "none", duration: STEP }, "step4");
+    timeline.to(el8, { y: H(297), ease: "none", duration: STEP }, "step4");
+    timeline.to(el9, { y: H(465), opacity: 1, ease: "none", duration: STEP }, "step4");
+    timeline.to(el10, { y: H(415), opacity: 1, ease: "none", duration: STEP }, "step4");
+    timeline.to(el11, { y: H(499), opacity: 1, ease: "none", duration: STEP }, "step4");
 
     timeline.to(
         [el1, el2, el3, el4, el5, el6, el7, el8, el9, el10, el11],
         {
             y: containerHeight + OFFSET,
             opacity: 0,
-            ease: "none"
+            ease: "none",
+            duration: STEP
         },
         "step5"
     );

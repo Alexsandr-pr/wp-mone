@@ -282,7 +282,15 @@
                     @media (max-width: 1556.98px) {
                         margin-left: calc((100dvw - 982px));
                     }
+                    @media (max-width: 991.98px) {
+                        margin-left: 0;
+                    }
                 }
+            }
+        }
+        @media (max-width: 991.98px) {
+            img {
+                display: block;
             }
         }
     }
@@ -434,7 +442,7 @@
 .marquee__inner {
     display: flex;
     width: fit-content;
-    animation: marquee 20s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 .marquee__group {
