@@ -75,10 +75,11 @@
 /*************************/
 
 .home-animation {
+    overflow: hidden;
     padding: 0px 0px 120px 0px;
 
     @media (max-width: 1440.98px) {
-        padding: 129px 0px 120px 0px;
+        padding: px 0px 120px 0px;
     }
 
     @media (max-width: 991.98px) {
@@ -95,7 +96,7 @@
         padding: 0px 30px;
         width: 100%;
         height: 100%;
-
+        overflow: hidden;
         @media (max-width: 1440.98px) {
             padding: 0;
         }
@@ -105,9 +106,7 @@
         width: 100%;
         aspect-ratio: 1347/858;
         position: relative;
-        height: auto;
         overflow: hidden;
-
     }
 
     .item {
@@ -119,7 +118,8 @@
         top: 0;
     }
 
-    .item-2 {
+    .item-2,
+    .item-12 {
         z-index: 3;
     }
 
@@ -152,7 +152,8 @@
         width: calc((326 / 1347) * 100%);
     }
 
-    .item-2 {
+    .item-2,
+    .item-12 {
         aspect-ratio: 324 / 324;
         width: calc((324 / 1347) * 100%);
     }
@@ -202,4 +203,5 @@
         width: calc((324 / 1347) * 100%);
     }
 }
+
 
