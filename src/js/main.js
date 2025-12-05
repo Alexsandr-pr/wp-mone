@@ -154,143 +154,144 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    gsap.registerPlugin(ScrollTrigger);
 
-    const runAnimation = (useScroll, loop = true) => {
-        const container = document.querySelector('.home-animation__block');
+    const container = document.querySelector(".home-animation__block");
 
-        const el1 = document.querySelector('.item-1');
-        const el2 = document.querySelector('.item-2');
-        const el2Copy = document.querySelector('.item-12');
-        const el3 = document.querySelector('.item-3');
-        const el4 = document.querySelector('.item-4');
-        const el5 = document.querySelector('.item-5');
-        const el6 = document.querySelector('.item-6');
-        const el7 = document.querySelector('.item-7');
-        const el8 = document.querySelector('.item-8');
-        const el9 = document.querySelector('.item-9');
-        const el10 = document.querySelector('.item-10');
-        const el11 = document.querySelector('.item-11');
+    if (container) {
+        gsap.registerPlugin(ScrollTrigger);
 
-        const containerHeight = container.offsetHeight;
-        const containerWidth = container.offsetWidth;
+        const runAnimation = (useScroll, loop = true) => {
+            const el1 = document.querySelector('.item-1');
+            const el2 = document.querySelector('.item-2');
+            const el2Copy = document.querySelector('.item-12');
+            const el3 = document.querySelector('.item-3');
+            const el4 = document.querySelector('.item-4');
+            const el5 = document.querySelector('.item-5');
+            const el6 = document.querySelector('.item-6');
+            const el7 = document.querySelector('.item-7');
+            const el8 = document.querySelector('.item-8');
+            const el9 = document.querySelector('.item-9');
+            const el10 = document.querySelector('.item-10');
+            const el11 = document.querySelector('.item-11');
 
-        const DESIGN_WIDTH = 1347;
-        const DESIGN_HEIGHT = 858;
+            const containerHeight = container.offsetHeight;
+            const containerWidth = container.offsetWidth;
 
-        const H = (px) => containerHeight * (px / DESIGN_HEIGHT);
-        const W = (px) => containerWidth * (px / DESIGN_WIDTH);
+            const DESIGN_WIDTH = 1347;
+            const DESIGN_HEIGHT = 858;
 
-        const STEP = 1;
+            const H = (px) => containerHeight * (px / DESIGN_HEIGHT);
+            const W = (px) => containerWidth * (px / DESIGN_WIDTH);
 
-        const timeline = gsap.timeline(
-            useScroll
-                ? {
-                    scrollTrigger: {
-                        trigger: ".home-animation",
-                        start: "top top",
-                        end: "+=" + containerHeight * 4,
-                        scrub: true,
-                        pin: true,
+            const STEP = 1;
+
+            const timeline = gsap.timeline(
+                useScroll
+                    ? {
+                        scrollTrigger: {
+                            trigger: ".home-animation",
+                            start: "top top",
+                            end: "+=" + containerHeight * 4,
+                            scrub: true,
+                            pin: true,
+                        }
                     }
-                }
-                : {
-                    paused: true,
-                    repeat: loop ? -1 : 0, // вот тут бесконечный цикл
-                    repeatDelay: 0,
-                    defaults: { ease: "none" }
-                }
-        );
+                    : {
+                        paused: true,
+                        repeat: loop ? -1 : 0,
+                        repeatDelay: 0,
+                        defaults: { ease: "none" }
+                    }
+            );
 
-        // SET позиции
-        gsap.set(el1, { y: containerHeight + 120 });
-        gsap.set(el2, { y: containerHeight, x: W(362) });
-        gsap.set(el2Copy, { y: containerHeight + 180, x: W(904), opacity: 0.5, scale: 0.8 });
-        gsap.set(el3, { y: containerHeight + 16, x: W(944) });
-        gsap.set(el4, { y: containerHeight + 123, x: W(191), opacity: 0, scale: 0.5 });
-        gsap.set(el5, { y: containerHeight + 63, x: W(1086), opacity: 0 });
-        gsap.set(el6, { y: containerHeight + 304, x: W(474), opacity: 0 });
-        gsap.set(el7, { y: containerHeight + 120, x: W(723), opacity: 0 });
-        gsap.set(el8, { y: containerHeight + 248, x: W(1197), opacity: 0 });
-        gsap.set(el9, { y: containerHeight + 76, x: W(261), opacity: 0 });
-        gsap.set(el10, { y: containerHeight + 123, x: W(723), opacity: 0 });
-        gsap.set(el11, { y: containerHeight + 160, x: W(904), opacity: 0 });
+            gsap.set(el1, { y: containerHeight + 120 });
+            gsap.set(el2, { y: containerHeight, x: W(362) });
+            gsap.set(el2Copy, { y: containerHeight + 180, x: W(904), opacity: 0.5, scale: 0.8 });
+            gsap.set(el3, { y: containerHeight + 16, x: W(944) });
+            gsap.set(el4, { y: containerHeight + 123, x: W(191), opacity: 0, scale: 0.5 });
+            gsap.set(el5, { y: containerHeight + 63, x: W(1086), opacity: 0 });
+            gsap.set(el6, { y: containerHeight + 304, x: W(474), opacity: 0 });
+            gsap.set(el7, { y: containerHeight + 120, x: W(723), opacity: 0 });
+            gsap.set(el8, { y: containerHeight + 248, x: W(1197), opacity: 0 });
+            gsap.set(el9, { y: containerHeight + 76, x: W(261), opacity: 0 });
+            gsap.set(el10, { y: containerHeight + 123, x: W(723), opacity: 0 });
+            gsap.set(el11, { y: containerHeight + 160, x: W(904), opacity: 0 });
 
-        // LABELS
-        timeline.addLabel("step1", 0 * STEP);
-        timeline.addLabel("pre2", 1.1 * STEP);
-        timeline.addLabel("step2", 1 * STEP);
-        timeline.addLabel("step3", 2 * STEP);
-        timeline.addLabel("step4", 3 * STEP);
-        timeline.addLabel("step5", 4 * STEP);
+            timeline.addLabel("step1", 0 * STEP);
+            timeline.addLabel("pre2", 1.1 * STEP);
+            timeline.addLabel("step2", 1 * STEP);
+            timeline.addLabel("step3", 2 * STEP);
+            timeline.addLabel("step4", 3 * STEP);
+            timeline.addLabel("step5", 4 * STEP);
 
-        // АНИМАЦИЯ КАК ЕСТЬ
-        timeline.to(el1, { y: H(126), ease: "none", duration: STEP }, "step1");
-        timeline.to(el2, { y: H(333), ease: "none", duration: STEP }, "step1");
-        timeline.to(el3, { y: H(450), ease: "none", duration: STEP }, "step1");
 
-        timeline.to(el2, {
-            y: containerHeight + 180,
-            x: W(162),
-            ease: "none",
-            duration: 1,
-            scale: 0.8,
-            opacity: 0.5
-        }, "pre2");
+            timeline.to(el1, { y: H(126), ease: "none", duration: STEP }, "step1");
+            timeline.to(el2, { y: H(333), ease: "none", duration: STEP }, "step1");
+            timeline.to(el3, { y: H(450), ease: "none", duration: STEP }, "step1");
 
-        timeline.to(el2Copy, { y: H(333), x: W(362), ease: "none", duration: STEP, opacity: 1, scale: 1 }, "step2");
-        timeline.to(el4, { y: H(525), opacity: 1, ease: "none", duration: STEP, scale: 1 }, "step2");
-        timeline.to(el5, { y: H(465), opacity: 1, ease: "none", duration: STEP }, "step2");
-
-        timeline.to(el6, { y: H(271), opacity: 1, ease: "none", duration: STEP }, "step3");
-        timeline.to(el7, { y: H(88), opacity: 1, ease: "none", duration: STEP }, "step3");
-        timeline.to(el8, { y: H(377), opacity: 1, ease: "none", duration: STEP }, "step3");
-
-        timeline.to(el3, { y: H(370), ease: "none", duration: STEP }, "step4");
-        timeline.to(el5, { y: H(385), ease: "none", duration: STEP }, "step4");
-        timeline.to(el7, { y: H(9), ease: "none", duration: STEP }, "step4");
-        timeline.to(el8, { y: H(297), ease: "none", duration: STEP }, "step4");
-        timeline.to(el9, { y: H(465), opacity: 1, ease: "none", duration: STEP, x: W(231) }, "step4");
-        timeline.to(el10, { y: H(415), opacity: 1, ease: "none", duration: STEP, x: W(799) }, "step4");
-        timeline.to(el11, { y: H(499), opacity: 1, ease: "none", duration: STEP, x: W(651) }, "step4");
-
-        timeline.to(
-            [el1, el2, el2Copy, el3, el4, el5, el6, el7, el8, el9, el10, el11],
-            {
-                y: containerHeight + 100,
-                opacity: 0,
+            timeline.to(el2, {
+                y: containerHeight + 180,
+                x: W(162),
                 ease: "none",
-                duration: STEP
-            },
-            "step5"
-        );
+                duration: 1,
+                scale: 0.8,
+                opacity: 0.5
+            }, "pre2");
 
-        if (!useScroll) {
-            timeline.play();
-        }
-    };
+            timeline.to(el2Copy, { y: H(333), x: W(362), ease: "none", duration: STEP, opacity: 1, scale: 1 }, "step2");
+            timeline.to(el4, { y: H(525), opacity: 1, ease: "none", duration: STEP, scale: 1 }, "step2");
+            timeline.to(el5, { y: H(465), opacity: 1, ease: "none", duration: STEP }, "step2");
 
-    ScrollTrigger.matchMedia({
-        "(min-width: 1124px)": function () {
-            runAnimation(true)
-        },
+            timeline.to(el6, { y: H(271), opacity: 1, ease: "none", duration: STEP }, "step3");
+            timeline.to(el7, { y: H(88), opacity: 1, ease: "none", duration: STEP }, "step3");
+            timeline.to(el8, { y: H(377), opacity: 1, ease: "none", duration: STEP }, "step3");
 
-        "(max-width: 1123px)": function () {
-            runAnimation(false);
-        }
-    });
+            timeline.to(el3, { y: H(370), ease: "none", duration: STEP }, "step4");
+            timeline.to(el5, { y: H(385), ease: "none", duration: STEP }, "step4");
+            timeline.to(el7, { y: H(9), ease: "none", duration: STEP }, "step4");
+            timeline.to(el8, { y: H(297), ease: "none", duration: STEP }, "step4");
+            timeline.to(el9, { y: H(465), opacity: 1, ease: "none", duration: STEP, x: W(231) }, "step4");
+            timeline.to(el10, { y: H(415), opacity: 1, ease: "none", duration: STEP, x: W(799) }, "step4");
+            timeline.to(el11, { y: H(499), opacity: 1, ease: "none", duration: STEP, x: W(651) }, "step4");
 
-    let resizeTimeout;
-    let lastWidth = window.innerWidth;
+            timeline.to(
+                [el1, el2, el2Copy, el3, el4, el5, el6, el7, el8, el9, el10, el11],
+                {
+                    y: containerHeight + 100,
+                    opacity: 0,
+                    ease: "none",
+                    duration: STEP
+                },
+                "step5"
+            );
 
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-
-        resizeTimeout = setTimeout(() => {
-            if (window.innerWidth !== lastWidth) {
-                location.reload();
+            if (!useScroll) {
+                timeline.play();
             }
-        }, 250);
-    });
+        };
 
+        ScrollTrigger.matchMedia({
+            "(min-width: 1124px)": function () {
+                runAnimation(true)
+            },
+
+            "(max-width: 1123px)": function () {
+                runAnimation(false);
+            }
+        });
+
+        let resizeTimeout;
+        let lastWidth = window.innerWidth;
+
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+
+            resizeTimeout = setTimeout(() => {
+                if (window.innerWidth !== lastWidth) {
+                    location.reload();
+                }
+            }, 50);
+        });
+
+    }
 })
