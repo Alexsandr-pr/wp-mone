@@ -154,7 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
+  
     const container = document.querySelector(".home-animation__block");
 
     if (container) {
@@ -191,7 +191,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         scrollTrigger: {
                             trigger: ".home-animation",
                             start: "top top",
-                            end: "+=" + containerHeight * 4,
+                            end: "+=" + containerHeight * 3,
                             scrub: true,
                             pin: true,
                         }
