@@ -213,7 +213,7 @@
     font-weight: 400; 
     line-height: 120%;
     text-transform: uppercase;
-
+    white-space: nowrap;
     &.bottom {
         padding-bottom: 27px;
         border-bottom: 3px var(--White, #FFF) solid;
