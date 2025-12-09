@@ -154,7 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
 
-  
+
     const container = document.querySelector(".home-animation__block");
 
     if (container) {
@@ -193,13 +193,14 @@ window.addEventListener("DOMContentLoaded", () => {
                             start: "top top",
                             end: "+=" + containerHeight * 3,
                             scrub: true,
-                            pin: true,
+                            pin: true
                         }
                     }
                     : {
                         paused: true,
                         repeat: loop ? -1 : 0,
                         repeatDelay: 0,
+                        once: true,
                         defaults: { ease: "none" }
                     }
             );
@@ -254,16 +255,6 @@ window.addEventListener("DOMContentLoaded", () => {
             timeline.to(el10, { y: H(415), opacity: 1, ease: "none", duration: STEP, x: W(799) }, "step4");
             timeline.to(el11, { y: H(499), opacity: 1, ease: "none", duration: STEP, x: W(651) }, "step4");
 
-            timeline.to(
-                [el1, el2, el2Copy, el3, el4, el5, el6, el7, el8, el9, el10, el11],
-                {
-                    y: containerHeight + 100,
-                    opacity: 0,
-                    ease: "none",
-                    duration: STEP
-                },
-                "step5"
-            );
 
             if (!useScroll) {
                 timeline.play();
@@ -276,7 +267,7 @@ window.addEventListener("DOMContentLoaded", () => {
             },
 
             "(max-width: 1123px)": function () {
-                runAnimation(false);
+                runAnimation(false, false);
             }
         });
 
@@ -294,4 +285,5 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+    
 })
