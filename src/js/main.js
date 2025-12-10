@@ -283,7 +283,29 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }, 50);
         });
-
     }
-    
+
+    function initShare() {
+        const btn = document.querySelector("#share-btn");
+
+        if (!btn) return;
+
+        btn.addEventListener("click", async () => {
+            const shareData = {
+                title: document.title,
+                text: "Check this article:",
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (_) { }
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+            }
+        });
+    }
+
+    initShare();
 })

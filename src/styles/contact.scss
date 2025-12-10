@@ -2,11 +2,6 @@
 
     // .contact-hero__container
     margin: 70px 0px;
-    &.response {
-        .contact-hero-left {
-            max-height: fit-content;
-        }
-    }
     &__container {
         display: flex;
         gap: 36px;
@@ -276,4 +271,9 @@
 
 .service-checkbox:hover span {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.contact-hero__left-response {
+    max-height: fit-content;
 }
