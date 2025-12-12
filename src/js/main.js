@@ -308,4 +308,50 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     initShare();
+
+    function initFormValidate() {
+        const form = document.querySelector('.contact-form');
+
+        const nameInput = form.querySelector('input[name="name"]');
+        const emailInput = form.querySelector('input[name="email"]');
+
+        form.addEventListener('submit', (e) => {
+            let isValid = true;
+
+            form.querySelectorAll('.error').forEach(el => el.remove());
+            form.querySelectorAll('.is-error').forEach(el => el.classList.remove('is-error'));
+
+            // NAME
+            if (nameInput.value.trim().length < 2) {
+                showError(nameInput, 'Please enter your name');
+                isValid = false;
+            }
+
+            // EMAIL
+            if (!isValidEmail(emailInput.value)) {
+                showError(emailInput, 'Please enter a valid email');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+
+        function showError(input, message) {
+            input.classList.add('is-error');
+
+            const error = document.createElement('div');
+            error.className = 'error';
+            error.textContent = message;
+
+            input.closest('.contact-form__label').appendChild(error);
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+    }
+    
+    initFormValidate();
 })
