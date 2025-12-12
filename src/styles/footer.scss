@@ -4,7 +4,7 @@
     width: 100%;
 }
 .footer {
-    padding: 120px 0px 40px 0px;
+    padding: 120px 0px 25px 0px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -97,7 +97,7 @@
 
 
 .footer-bottom {
-    padding-top: 20px;
+    padding-top: 24px;
     border-top: 1px solid var(--Gray, #C6C6C6);
     // .footer-bottom__left
     display: flex;
@@ -114,4 +114,13 @@
     &__link {
         font-weight: 700;
     }
+}
+
+.footer-bottom__right {
+    column-gap: 32px;
+    row-gap: 8px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
 }

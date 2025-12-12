@@ -1294,7 +1294,6 @@
             gap: 4px;
         }
     }
-
     // .benefits-content-item__title
 
     &__title {
@@ -1966,6 +1965,9 @@
 
         @media (max-width: 487.98px) {
             width: auto;
+        }
+        span {
+            color: var(--Gray, #C6C6C6);
         }
     }
 }

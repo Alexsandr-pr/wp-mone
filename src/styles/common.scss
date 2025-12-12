@@ -698,12 +698,11 @@
             text-transform: capitalize;
         }
     }
+}
+.section-services__item-hidden-ds {
+    display: none;
 
-    .section-services__item-hidden-ds {
-        display: none;
-
-        @media (max-width: 991.98px) {
-            display: block;
-        }
+    @media (max-width: 991.98px) {
+        display: block;
     }
 }

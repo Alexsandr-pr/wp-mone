@@ -44,16 +44,20 @@
                             </div>
                             <div class="contact-form__inputs">
                                 <label for="name" class="contact-form__label">
-                                    <input name="name" type="text" class="contact-form__input"
+                                    <input required id="name" name="name" type="text" class="contact-form__input"
                                         placeholder="Enter your name">
                                 </label>
                                 <label for="email" class="contact-form__label">
-                                    <input name="email" type="email" class="contact-form__input"
+                                    <input required id="email" name="email" type="email" class="contact-form__input"
                                         placeholder="Enter your email">
                                 </label>
                                 <label for="message" class="contact-form__label">
-                                    <input name="message" type="text" class="contact-form__input"
-                                        placeholder="Tell us more details about the project (optional)">
+                                    <textarea 
+                                        id="message"
+                                        name="message" 
+                                        class="contact-form__input contact-form__textarea"
+                                        placeholder="Tell us more details about the project (optional)"
+                                    ></textarea>     
                                 </label>
                             </div>
                             <a href="/thank-you" class="contact-form__button button white small">
